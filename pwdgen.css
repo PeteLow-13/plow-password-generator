@@ -1,0 +1,22 @@
+*{ 
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+
+}
+
+
+body {
+    box-sizing: border-box;
+    background-color: turquoise;
+    text-align: center;
+}
+
+container {
+    box-sizing: border-box;
+    border-color:black ;
+    
+}
+input {
+    text-align: center;
+}
