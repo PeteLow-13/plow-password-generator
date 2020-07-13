@@ -6,10 +6,6 @@
 }
 
 
-/* body {
-    box-sizing: border-box;
-    background-color: turquoise;
-    text-align: center; */
 
 body {
     background-color:rgb(197, 211, 230);
@@ -30,7 +26,6 @@ body {
     background-color: teal;
     border-radius: 5px;
     border: 20px purple;
-    
     justify-content: center;
     margin: auto;
     padding: 20px;
