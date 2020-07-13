@@ -31,13 +31,12 @@ var passwordButton = document.querySelector("#generate")
 
         console.log(characterAmount)
         //user choses character types for array 
-     var collection = [];{
-        
-            // while ( collection < 0){
-            //     collection = prompt("You must chose at least 1 character type");
-            // }
-        
+     var collection = [];
 
+    //  if ( collection < 0){
+    //     collection = prompt("You must chose at least 1 character type");
+    //     }
+        {
         var hasUpperCase = confirm("Would you like upper case letter(s)?");
          console.log(hasUpperCase)
 
@@ -70,14 +69,14 @@ var passwordButton = document.querySelector("#generate")
                 collection.push(...specialChar);
             }
             
-            while ( collection < 0){
-                collection = prompt("You must chose at least 1 character type");
-            }
-     }
         
-        
+        }  
         console.log(collection)
-
+        
+    
+        while ( collection < 0 ){
+            collection = prompt("You must chose at least 1 character type");
+        }
         
         let password = "";
 
@@ -93,23 +92,20 @@ var passwordButton = document.querySelector("#generate")
         document.querySelector("#pwdDisplay").value = password;
  
        
-    var copyButton = document.querySelector("#copy")
+        var copyButton = document.querySelector("#copy")
         copyButton.addEventListener("click", copyPwd);
 
         
         function copyPwd() {
             
             var pwdDisplay = document.getElementById("pwdDisplay");
-          
-            /* Select the text field */
             pwdDisplay.select();
-            // copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-          
-            
+
             document.execCommand("copy");
             alert("Copied the password: " + pwdDisplay.value); 
             
-            // console.log(copyPwd("pwdDisplay"))
+            
         }
         
     }     
+    
