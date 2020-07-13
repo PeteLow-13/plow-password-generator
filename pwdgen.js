@@ -22,79 +22,94 @@ var passwordButton = document.querySelector("#generate")
 
 
  function generatePwd(){
+     //user selects length
      var characterAmount = prompt("How many characters would you like(8-128)?");
-        console.log(characterAmount)
+        //if no length selected prompted again
+        while (characterAmount < 8 || characterAmount > 128){
+            characterAmount = prompt("Reminder: the number of characters must be between 8-128");
+        }
 
+        console.log(characterAmount)
+        //user choses character types for array 
+     var collection = [];{
+        
+            // while ( collection < 0){
+            //     collection = prompt("You must chose at least 1 character type");
+            // }
+        
 
         var hasUpperCase = confirm("Would you like upper case letter(s)?");
-        console.log(hasUpperCase)
+         console.log(hasUpperCase)
 
         var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-        console.log(upperCase)
+            if (hasUpperCase == true){
+                collection.push(...upperCase);
+            }
         
         var hasLowerCase = confirm("Would you like lower case letter(s)?");
         console.log(hasLowerCase)
 
         var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-        console.log(lowerCase)
+            if (hasLowerCase == true){
+                collection.push(...lowerCase);
+            }
 
         var hasNumber = confirm("Would you like number(s)");
         console.log(hasNumber) 
         
         var number =["1","2","3","4","5","6","7","8","9","0"];
-        console.log(number)
+            if (hasNumber == true){
+                collection.push(...number);
+            }
 
         var hasSpecialChar = confirm("Would you like special character(s)");
         console.log(hasSpecialChar)
 
         var specialChar = ["!","@","#","$","%","^","&","*","(",")","_","+"];
-        console.log(specialChar)
-
-
-        var collection = [];
-        if (hasUpperCase == true){
-            collection.push(...upperCase);
-            console.log(collection)
-        }
-        if (hasLowerCase == true){
-            collection.push(...lowerCase);
-            console.log(collection)
-        }
-        if (hasNumber == true){
-            collection.push(...number);
-            console.log(collection)
-        }
-        if (hasSpecialChar == true){
-            collection.push(...specialChar);
-            console.log(collection)
-        }
-        
-        var password = ""
-
-        for(var i = 0; i < characterAmount; i++){
-                 //password = password + collection.charAt(Math.floor(Math.random()* Math.floor(characterAmount -1)));
-                password = password + (Math.floor(Math.random() * (characterAmount -1)));
+            if (hasSpecialChar == true){
+                collection.push(...specialChar);
             }
-                 
+            
+            while ( collection < 0){
+                collection = prompt("You must chose at least 1 character type");
+            }
+     }
+        
+        
+        console.log(collection)
+
+        
+        let password = "";
+
+         for(var i = 0; i < characterAmount; i++){
+            password = password + collection[Math.floor(Math.random() * Math.floor(collection.length))];
+
+        }
+        
+        
         
         console.log(password)
-
-
+    
         document.querySelector("#pwdDisplay").value = password;
-        console.log(password)
+ 
+       
+    var copyButton = document.querySelector("#copy")
+        copyButton.addEventListener("click", copyPwd);
 
-        // var pwdDisplay = password  
-        // document.querySelector()
-
-    }
-
-  
-    // for(var i = 0; i <= complexity; i++){
-    //     password = password + values.charAt(Math.floor(Math.random()* Math.floor(values.length -1)));
-    // }
-    // //add pwd to display
-    // document.getelementById("pwdDisplay").value=password;
-
-
-
-
+        
+        function copyPwd() {
+            
+            var pwdDisplay = document.getElementById("pwdDisplay");
+          
+            /* Select the text field */
+            pwdDisplay.select();
+            // copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+          
+            
+            document.execCommand("copy");
+            alert("Copied the password: " + pwdDisplay.value); 
+            
+            // console.log(copyPwd("pwdDisplay"))
+        }
+        
+    }     

@@ -1,20 +1,39 @@
 *{ 
-    margin-top: 10px;
-    margin-bottom: 10px;
+    box-sizing: border-box;
+    text-align: center;
 
 
 }
 
 
-body {
+/* body {
     box-sizing: border-box;
     background-color: turquoise;
-    text-align: center;
+    text-align: center; */
+
+body {
+    background-color:rgb(197, 211, 230);
+    padding: 0;
+    margin:0;
+    display: flex;
+    width: 100vw;
+    height: 100vw;
+    justify-content: center;
+    align-items: center;
+
 }
 
-container {
-    box-sizing: border-box;
-    border-color:black ;
+
+.container {
+    width: 800 px;
+    max-width: 80%;
+    background-color: teal;
+    border-radius: 5px;
+    border: 20px purple;
+    
+    justify-content: center;
+    margin: auto;
+    padding: 20px;
     
 }
 input {
