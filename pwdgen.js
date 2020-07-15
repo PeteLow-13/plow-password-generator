@@ -32,11 +32,11 @@ var passwordButton = document.querySelector("#generate")
         console.log(characterAmount)
         //user choses character types for array 
      var collection = [];
+        while ( collection.length <= 0){
+          confirm("You must chose at least 1 character type");
+         
 
-    //  if ( collection < 0){
-    //     collection = prompt("You must chose at least 1 character type");
-    //     }
-        {
+        
         var hasUpperCase = confirm("Would you like upper case letter(s)?");
          console.log(hasUpperCase)
 
@@ -68,15 +68,19 @@ var passwordButton = document.querySelector("#generate")
             if (hasSpecialChar == true){
                 collection.push(...specialChar);
             }
-            
         
-        }  
+        }
         console.log(collection)
+        // while ( collection.length <= 0){
+        //     confirm("You must chose at least 1 character type");
+            
+
+        //    }
         
     
-        while ( collection < 0 ){
-            collection = prompt("You must chose at least 1 character type");
-        }
+        // while ( collection < 0 ){
+        //     collection = prompt("You must chose at least 1 character type");
+        // }
         
         let password = "";
 
